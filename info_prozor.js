@@ -1,7 +1,3 @@
-/*
-	Copyright (C) 2021. Nikola Vukićević
-*/
-
 /* -------------------------------------------------------------------------- */
 /* PODEŠAVANJA                                                                
 /* -------------------------------------------------------------------------- */
@@ -28,15 +24,16 @@
 
 /* -------------------------------------------------------------------------- */
 
-var idProzora        = "info_prozor";
-var lokacijaProzora  = "wrapper";
-var prozor_otvoren   = false;
-var prozor_opacity   = 0;
-var tajmer_prozor    = 0;
-var interval         = 20;
-var tajmer_g1        = 4000;
-var tajmer_g2        = 12000;
-var tajmer_g3        = 16000;
+var idProzora          = "info_prozor";
+var lokacijaProzora    = "wrapper";
+var prozor_otvoren     = false;
+var prozor_opacity     = 0;
+var dostignuti_opacity = 0;
+var tajmer_prozor      = 0;
+var interval           = 20;
+var tajmer_g1          = 4000;
+var tajmer_g2          = 12000;
+var tajmer_g3          = 16000;
 var tajmer_pokrenut;
 var ocitavanje_opacity;
 
@@ -60,7 +57,7 @@ var napomena_prozor_string =
 /* FUNKCIJE
 /* -------------------------------------------------------------------------- */
 
-function OtvaranjeProzora() {
+function PrikaziProzor() {
 
 	let idZaKacenjeProzora = document.getElementById(lokacijaProzora);
 
@@ -109,21 +106,20 @@ function OcitavanjeTajmera() {
 	
 	if(tajmer_prozor < tajmer_g3) {
 		if(tajmer_prozor < tajmer_g1) {
-			prozor_opacity = tajmer_prozor / tajmer_g1
-			infoProzor.style.opacity = prozor_opacity;
+			prozor_opacity = tajmer_prozor / tajmer_g1;
+			dostignuti_opacity       = prozor_opacity;
 		}
 		else {
 			if(tajmer_prozor > tajmer_g2) {
-				prozor_opacity  = 1 - (tajmer_prozor - tajmer_g2) / (tajmer_g3 - tajmer_g2)
-				infoProzor.style.opacity = prozor_opacity;
+				prozor_opacity  = dostignuti_opacity * (1 - (tajmer_prozor - tajmer_g2) / (tajmer_g3 - tajmer_g2));
 			}
 			else {
-				prozor_opacity = 1
-				infoProzor.style.opacity = prozor_opacity;
+				prozor_opacity = 1;
 			}
 		}
-		
-		tajmer_prozor += interval;		
+
+		infoProzor.style.opacity = prozor_opacity;
+		tajmer_prozor           += interval;		
 		//IspisPodataka();
 	}
 	else {
@@ -132,14 +128,14 @@ function OcitavanjeTajmera() {
 }
 
 function IspisPodataka() {
-	document.getElementById("oznaka_prozor_otvoren").innerHTML     = prozor_otvoren;
-	document.getElementById("oznaka_prozor_opacity").innerHTML     = Math.round(prozor_opacity * 100) / 100;
-	document.getElementById("oznaka_tajmer_prozor").innerHTML      = tajmer_prozor + "ms";
-	document.getElementById("oznaka_interval").innerHTML           = interval;
-	document.getElementById("oznaka_tajmer_g1").innerHTML          = tajmer_g1 / 1000 + "s";
-	document.getElementById("oznaka_tajmer_g2").innerHTML          = tajmer_g2 / 1000 + "s";
-	document.getElementById("oznaka_tajmer_g3").innerHTML          = tajmer_g3 / 1000 + "s";
-	document.getElementById("oznaka_tajmer_pokrenut").innerHTML    = tajmer_pokrenut;
-	document.getElementById("oznaka_ocitavanje_opacity").innerHTML = ocitavanje_opacity;
+	document.getElementById("oznaka_prozor_otvoren").innerHTML     = "prozor_otvoren: "          + prozor_otvoren;
+	document.getElementById("oznaka_prozor_opacity").innerHTML     = "prozor_opacity: "          + prozor_opacity;
+	document.getElementById("oznaka_tajmer_prozor").innerHTML      = "tajmer_prozor: "           + tajmer_prozor;
+	document.getElementById("oznaka_interval").innerHTML           = "interval: "                + interval;
+	document.getElementById("oznaka_tajmer_g1").innerHTML          = "tajmer_g1: "               + tajmer_g1;
+	document.getElementById("oznaka_tajmer_g2").innerHTML          = "tajmer_g2: "               + tajmer_g2;
+	document.getElementById("oznaka_tajmer_g3").innerHTML          = "tajmer_g3: "               + tajmer_g3;
+	document.getElementById("oznaka_tajmer_pokrenut").innerHTML    = "tajmer_pokrenut (id): "    + tajmer_pokrenut;
+	document.getElementById("oznaka_ocitavanje_opacity").innerHTML = "ocitavanje_opacity (id); " + ocitavanje_opacity;
 }
 
