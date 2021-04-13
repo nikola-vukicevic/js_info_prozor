@@ -5,5 +5,5 @@ JS aplikacija za prikaz pop-up prozora sa informacijama
 Datoteke "info_prozor.js" i "info_prozor.css" potrebno je uključiti u HTML dokument.
 Prozor se poziva preko metode OtvaranjeProzora()
 
-## Demo
+## demo
 https://www.codeblog.rs/primeri/info_prozor
