@@ -6,4 +6,4 @@ Datoteke "info_prozor.js" i "info_prozor.css" potrebno je uključiti u HTML doku
 Prozor se poziva preko metode OtvaranjeProzora()
 
 ## Demo
-https://www.codeblog.rs/info_prozor
+https://www.codeblog.rs/primeri/info_prozor
