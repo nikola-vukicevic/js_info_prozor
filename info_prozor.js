@@ -57,20 +57,20 @@ var napomena_prozor_string =
 /* FUNKCIJE
 /* -------------------------------------------------------------------------- */
 
-function PrikaziProzor() {
+function OtvaranjeProzora() {
 
-	let idZaKacenjeProzora = document.getElementById(lokacijaProzora);
+	let idZaKacenjeProzora       = document.getElementById(lokacijaProzora);
 
 	if(!prozor_otvoren) {
-		let infoProzor               = document.createElement("div");
+		let infoProzor           = document.createElement("div");
 		infoProzor.setAttribute("id", idProzora);
-		infoProzor.innerHTML         = napomena_prozor_string;
+		infoProzor.innerHTML     = napomena_prozor_string;
 		idZaKacenjeProzora.appendChild(infoProzor);
 
-		infoProzor.style.opacity     = 0;
-		tajmer_pokrenut              = setTimeout(Zatvaranje, tajmer_g3);
-		ocitavanje_opacity           = setInterval(OcitavanjeTajmera, interval);
-		prozor_otvoren               = true;
+		infoProzor.style.opacity = 0;
+		tajmer_pokrenut          = setTimeout(Zatvaranje, tajmer_g3);
+		ocitavanje_opacity       = setInterval(OcitavanjeTajmera, interval);
+		prozor_otvoren           = true;
 	}
 	else {
 		alert("Prozor je vec otvoren");
@@ -106,8 +106,8 @@ function OcitavanjeTajmera() {
 	
 	if(tajmer_prozor < tajmer_g3) {
 		if(tajmer_prozor < tajmer_g1) {
-			prozor_opacity = tajmer_prozor / tajmer_g1;
-			dostignuti_opacity       = prozor_opacity;
+			prozor_opacity     = tajmer_prozor / tajmer_g1;
+			dostignuti_opacity = prozor_opacity;
 		}
 		else {
 			if(tajmer_prozor > tajmer_g2) {
@@ -128,14 +128,14 @@ function OcitavanjeTajmera() {
 }
 
 function IspisPodataka() {
-	document.getElementById("oznaka_prozor_otvoren").innerHTML     = "prozor_otvoren: "          + prozor_otvoren;
-	document.getElementById("oznaka_prozor_opacity").innerHTML     = "prozor_opacity: "          + prozor_opacity;
-	document.getElementById("oznaka_tajmer_prozor").innerHTML      = "tajmer_prozor: "           + tajmer_prozor;
-	document.getElementById("oznaka_interval").innerHTML           = "interval: "                + interval;
-	document.getElementById("oznaka_tajmer_g1").innerHTML          = "tajmer_g1: "               + tajmer_g1;
-	document.getElementById("oznaka_tajmer_g2").innerHTML          = "tajmer_g2: "               + tajmer_g2;
-	document.getElementById("oznaka_tajmer_g3").innerHTML          = "tajmer_g3: "               + tajmer_g3;
-	document.getElementById("oznaka_tajmer_pokrenut").innerHTML    = "tajmer_pokrenut (id): "    + tajmer_pokrenut;
-	document.getElementById("oznaka_ocitavanje_opacity").innerHTML = "ocitavanje_opacity (id); " + ocitavanje_opacity;
+	document.getElementById("oznaka_prozor_otvoren").innerHTML     = prozor_otvoren;
+	document.getElementById("oznaka_prozor_opacity").innerHTML     = Math.round(prozor_opacity * 100) / 100;
+	document.getElementById("oznaka_tajmer_prozor").innerHTML      = tajmer_prozor + "ms";
+	document.getElementById("oznaka_interval").innerHTML           = interval;
+	document.getElementById("oznaka_tajmer_g1").innerHTML          = tajmer_g1 / 1000 + "s";
+	document.getElementById("oznaka_tajmer_g2").innerHTML          = tajmer_g2 / 1000 + "s";
+	document.getElementById("oznaka_tajmer_g3").innerHTML          = tajmer_g3 / 1000 + "s";
+	document.getElementById("oznaka_tajmer_pokrenut").innerHTML    = tajmer_pokrenut;
+	document.getElementById("oznaka_ocitavanje_opacity").innerHTML = ocitavanje_opacity;
 }
 

@@ -7,19 +7,13 @@
 	color:           #fdfbf9;
 	font-family:     OpenSans-Regular, Arial, sans-serif;
 	font-size:       11pt;
-	position:        absolute;
+	position:        fixed;
 	display:         flex;
 	flex-direction:  column;
 	justify-content: flex-start;
 	align-items:     flex-start;
 	opacity:         0.8;
 	bottom:          16px;
-	/*
-	Ako hoćete da prozor 'zalepite' za gornju ivicu, isključite bottom i uključite
-	
-	top:            16px;
-	
-	*/
 	right:           24px;
 	z-index:         9999;
 	padding:         15px 36px 16px 20px;
@@ -51,10 +45,11 @@
 }
 
 #info_prozor h2 {
-	width:     100%;
-	font-size: 16pt;
-	margin:    0 0 4px 0;
-	margin:    0 0 8px 0;
+	width:         100%;
+	font-size:     16pt;
+	border-bottom: solid 1px #fff;
+	padding:       0 0 8px 0;
+	margin:        0 0 8px 0;
 }
 
 #info_prozor h3 {
