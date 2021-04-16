@@ -1,5 +1,5 @@
 # js_info_prozor
-JS aplikacija za prikaz pop-up prozora sa informacijama
+JS aplikacija za prikaz pop-up prozora sa informacijama (jelte - toast)
 
 ## Instalacija / konfiguracija
 Datoteke "info_prozor.js" i "info_prozor.css" potrebno je uključiti u HTML dokument.
